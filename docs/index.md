@@ -1,17 +1,29 @@
-# docker-volume-backup
+---
+title: Home
+layout: home
+nav_order: 1
+---
+
+# khulnasoft/docker-volume-backup
+{:.no_toc}
 
 Backup Docker volumes locally or to any S3, WebDAV, Azure Blob Storage, Dropbox or SSH compatible storage.
+{: .fs-6 .fw-300 }
+
+---
 
 The [khulnasoft/docker-volume-backup](https://hub.docker.com/r/khulnasoft/docker-volume-backup) Docker image can be used as a lightweight (below 15MB) companion container to an existing Docker setup.
 It handles __recurring or one-off backups of Docker volumes__ to a __local directory__, __any S3, WebDAV, Azure Blob Storage, Dropbox or SSH compatible storage (or any combination thereof) and rotates away old backups__ if configured. It also supports __encrypting your backups using GPG__ and __sending notifications for (failed) backup runs__.
 
-Documentation is found at <https://khulnasoft.github.io/docker-volume-backup>
-  - [Quickstart](https://khulnasoft.github.io/docker-volume-backup)
-  - [Configuration Reference](https://khulnasoft.github.io/docker-volume-backup/reference/)
-  - [How Tos](https://khulnasoft.github.io/docker-volume-backup/how-tos/)
-  - [Recipes](https://khulnasoft.github.io/docker-volume-backup/recipes/)
+{: .note }
+Code and documentation for `v1` versions are found on [this branch][v1-branch].
+
+[v1-branch]: https://github.com/khulnasoft/docker-volume-backup/tree/v1
 
 ---
+
+1. TOC
+{:toc}
 
 ## Quickstart
 
@@ -45,9 +57,11 @@ services:
     volumes:
       - data:/backup/my-app-backup:ro
       # Mounting the Docker socket allows the script to stop and restart
-      # the container during backup. You can omit this if you don't want
-      # to stop the container. In case you need to proxy the socket, you can
-      # also provide a location by setting `DOCKER_HOST` in the container
+      # the container during backup and to access the container labels to
+      # specify custom commands. You can omit this if you don't want to
+      # stop the container or run custom commands. In case you need to
+      # proxy the socket, you can also provide a location by setting
+      # `DOCKER_HOST` in the container
       - /var/run/docker.sock:/var/run/docker.sock:ro
       # If you mount a local directory or volume to `/archive` a local
       # copy of the backup will be stored there. You can override the
@@ -74,7 +88,35 @@ docker run --rm \
 
 Alternatively, pass a `--env-file` in order to use a full config as described below.
 
----
+## Available image registries
 
-Copyright &copy; 2024 <a target="_blank" href="https://www.khulnasoft.com">khulnasoft.com</a> and contributors.
-Distributed under the <a href="https://github.com/khulnasoft/docker-volume-backup/tree/main/LICENSE">MPL-2.0 License</a>.
+This Docker image is published to both Docker Hub and the GitHub container registry.
+Depending on your preferences and needs, you can reference both `khulnasoft/docker-volume-backup` as well as `ghcr.io/khulnasoft/docker-volume-backup`:
+
+```
+docker pull khulnasoft/docker-volume-backup:v2
+docker pull ghcr.io/khulnasoft/docker-volume-backup:v2
+```
+
+Documentation references Docker Hub, but all examples will work using ghcr.io just as well.
+
+## Supported Engines
+
+This tool is developed and tested against the Docker CE engine exclusively.
+While it may work against different implementations (e.g. Balena Engine), there are no guarantees about support for non-Docker engines.
+
+## Differences to `jareware/docker-volume-backup`
+
+This image is heavily inspired by `jareware/docker-volume-backup`. We decided to publish this image as a simpler and more lightweight alternative because of the following requirements:
+
+- The original image is based on `ubuntu` and requires additional tools, making it heavy.
+This version is roughly 1/25 in compressed size (it's ~15MB).
+- The original image uses a shell script, when this version is written in Go.
+- The original image proposed to handle backup rotation through AWS S3 lifecycle policies.
+This image adds the option to rotate away old backups through the same command so this functionality can also be offered for non-AWS storage backends like MinIO.
+Local copies of backups can also be pruned once they reach a certain age.
+- InfluxDB specific functionality from the original image was removed.
+- `arm64` and `arm/v7` architectures are supported.
+- Docker in Swarm mode is supported.
+- Notifications on finished backups are supported.
+- IAM authentication through instance profiles is supported.

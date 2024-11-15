@@ -1,0 +1,35 @@
+title: docker-volume-backup
+description: Documentation for the khulnasoft/docker-volume-backup Docker image.
+theme: just-the-docs
+
+url: https://khulnasoft.github.io/docker-volume-backup/
+
+callouts_level: quiet
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
+
+aux_links:
+  'GitHub Repository':
+    - https://github.com/khulnasoft/docker-volume-backup
+
+nav_external_links:
+  - title: GitHub Repository
+    url: https://github.com/khulnasoft/docker-volume-backup
+
+footer_content: >-
+  Copyright &copy; 2024 <a target="_blank" href="https://www.khulnasoft.com">khulnasoft.com</a> and contributors.
+  Distributed under the <a href="https://github.com/khulnasoft/docker-volume-backup/tree/main/LICENSE">MPL-2.0 License.</a><br>
+  Something missing, unclear or not working? Open <a href="https://github.com/khulnasoft/docker-volume-backup/issues">an issue</a>.
