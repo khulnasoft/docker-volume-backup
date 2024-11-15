@@ -12,7 +12,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/khulnasoft/docker-volume-backup/internal/errwrap"
-	"github.com/kelseyhightower/envconfig"
+	"github.com/khulnasoft-lab/envconfig"
 	shell "mvdan.cc/sh/v3/shell"
 )
 
