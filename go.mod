@@ -9,7 +9,7 @@ require (
 	github.com/containrrr/shoutrrr v0.8.0
 	github.com/cosiner/argv v0.1.0
 	github.com/docker/cli v27.3.1+incompatible
-	github.com/docker/docker v27.1.1+incompatible
+	github.com/docker/docker v27.3.1+incompatible
 	github.com/gofrs/flock v0.12.1
 	github.com/joho/godotenv v1.5.1
 	github.com/khulnasoft-lab/envconfig v1.5.0
