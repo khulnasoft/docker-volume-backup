@@ -3,7 +3,7 @@ module github.com/khulnasoft/docker-volume-backup
 go 1.23
 
 require (
-	filippo.io/age v1.2.0
+	filippo.io/age v1.2.1
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.8.0
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.4.1
 	github.com/containrrr/shoutrrr v0.8.0
@@ -20,9 +20,9 @@ require (
 	github.com/pkg/sftp v1.13.7
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/studio-b12/gowebdav v0.9.0
-	golang.org/x/crypto v0.28.0
+	golang.org/x/crypto v0.31.0
 	golang.org/x/oauth2 v0.24.0
-	golang.org/x/sync v0.9.0
+	golang.org/x/sync v0.10.0
 	mvdan.cc/sh/v3 v3.10.0
 )
 
@@ -79,7 +79,7 @@ require (
 	github.com/rs/xid v1.6.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	golang.org/x/net v0.30.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 	gotest.tools/v3 v3.0.3 // indirect
 )
