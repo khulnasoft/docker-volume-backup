@@ -1,7 +1,7 @@
 # Copyright 2022 - khulnasoft.com <hikhulnasoft@posteo.de>
 # SPDX-License-Identifier: MPL-2.0
 
-FROM golang:1.23-alpine as builder
+FROM golang:1.24-alpine as builder
 
 WORKDIR /app
 COPY . .
